@@ -1,38 +1,175 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'BMYEONSUNG';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMYEONSUNG.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: #f6f6f6;
+  font-family: 'BMYEONSUNG';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media(min-width: 650px){
+  .App{
+    width: 640px;
+  }
+}
+@media(max-width: 650px){
+  .App{
+    width: 90vw;
   }
 }
 
-.App-header {
-  background-color: #282c34;
+#root{
+  background-color: white;
+  box-shadow: rgba(100, 100,111, 0.2 ) 0px 7px 29px 8px;
+}
+
+.App{
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/* myButton */
+.myButton{
+  cursor: pointer;
+  font-family: 'BMYEONSUNG';
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.myButton_default{
+  background-color: #ececec;
+  color: black;
+}
+
+.myButton_positive{
+  background-color: #64c964;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.myButton_negative{
+  background-color: #fd565f;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Header */
+.header{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+header>div{
+  display: flex;
+}
+
+.header .headerText{
+  justify-content: center;
+  font-size: 25px;
+  width: 50%;
+}
+
+.header .leftSide{
+  justify-content: start;
+  width: 25%;
+}
+
+.header .rightSide{
+  justify-content: end;
+  width: 25%;
+}
+
+/* DiaryList */
+.DiaryList .menu_wrapper{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.DiaryList .menu_wrapper .right_col{
+  flex-grow: 1;
+}
+
+.DiaryList .menu_wrapper .right_col button{
+  width: 100%;
+}
+
+.DiaryList .MenuControl{
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-family: 'BMYEONSUNG';
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+  cursor: pointer;
+}
+
+/* DiaryItem */
+.DiaryItem{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.DiaryItem .img_wrapper{
+  cursor: pointer;
+  min-width: 120px;
+  height: 80px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.DiaryItem .img_wrapper_1{
+  background-color: #64c964;
+}
+.DiaryItem .img_wrapper_2{
+  background-color: #9dd772;
+}
+.DiaryItem .img_wrapper_3{
+  background-color: #fdce17;
+}
+.DiaryItem .img_wrapper_4{
+  background-color: #fd8446;
+}
+.DiaryItem .img_wrapper_5{
+  background-color: #fd565f;
+}
+
+
+.DiaryItem .content_wrapper{
+  cursor: pointer;
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.DiaryItem .diary_date{
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.DiaryItem .diary_content_preview{
+  font-size: 18px;
+}
+
+.DiaryItem .btn_wrapper{
+  min-width: 70px;
 }
