@@ -34,7 +34,7 @@ const reducer = (state, action) => {
     case "EDIT": {
       const data = action.data;
       newState = state.map((item) =>
-        item.id === data.id ? { ...data } : item
+        item.id === action.targetId ? { ...data } : item
       );
       break;
     }
@@ -67,8 +67,12 @@ function App() {
   const onRemove = (targetId) => {
     dispatch({ type: "REMOVE", targetId });
   };
-  const onEdit = (data) => {
-    dispatch({ type: "EDINT", data });
+  const onEdit = (targetId, date, content, emotion) => {
+    dispatch({
+      type: "EDINT",
+      targetId,
+      data: { id: targetId, date: new Date(date).getTime(), content, emotion },
+    });
   };
   return (
     <diaryStateContext.Provider value={data}>
@@ -79,7 +83,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/diary/:id" element={<Diary />} />
               <Route path="/new" element={<New />} />
-              <Route path="/Edit" element={<Edit />} />
+              <Route path="/edit/:id" element={<Edit />} />
             </Routes>
           </div>
         </BrowserRouter>
