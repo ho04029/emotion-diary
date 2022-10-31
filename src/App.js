@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
@@ -50,9 +50,19 @@ export const diaryReducerContext = React.createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, dummy);
+  const dataId = useRef(0);
 
-  const onCreate = (data) => {
-    dispatch({ type: "CREATE", data });
+  const onCreate = (date, content, emotion) => {
+    dispatch({
+      type: "CREATE",
+      data: {
+        id: dataId.current,
+        date: new Date(date).getTime(),
+        content,
+        emotion,
+      },
+    });
+    dataId.current++;
   };
   const onRemove = (targetId) => {
     dispatch({ type: "REMOVE", targetId });

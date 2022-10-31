@@ -20,14 +20,13 @@ const Home = () => {
       const lastDay = new Date(
         curDate.getFullYear(),
         curDate.getMonth() + 1,
-        -1
+        1
       ).getTime();
 
       setData(
-        diaryList.filter(
-          (item) => item.date >= firstDay && item.date <= lastDay
-        )
+        diaryList.filter((item) => item.date >= firstDay && item.date < lastDay)
       );
+      console.log(lastDay);
     }
   }, [curDate, diaryList]);
 
