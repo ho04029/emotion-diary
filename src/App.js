@@ -7,14 +7,6 @@ import Diary from "./pages/Diary";
 import New from "./pages/New";
 import Edit from "./pages/Edit";
 
-const dummy = [
-  { id: 1, content: "오늘의 일기", emotion: 1, date: 1666076471461 },
-  { id: 2, content: "오늘의 일기2", emotion: 2, date: 1666076471462 },
-  { id: 3, content: "오늘의 일기3", emotion: 3, date: 1666076471463 },
-  { id: 4, content: "오늘의 일기4", emotion: 4, date: 1666076471464 },
-  { id: 5, content: "오늘의 일기5", emotion: 5, date: 1666076471465 },
-];
-
 const reducer = (state, action) => {
   let newState = [];
   switch (action.type) {
@@ -41,7 +33,7 @@ const reducer = (state, action) => {
     default:
       return state;
   }
-
+  localStorage.setItem("diary", JSON.stringify(newState));
   return newState;
 };
 
@@ -49,7 +41,7 @@ export const diaryStateContext = React.createContext();
 export const diaryReducerContext = React.createContext();
 
 function App() {
-  const [data, dispatch] = useReducer(reducer, dummy);
+  const [data, dispatch] = useReducer(reducer, []);
   const dataId = useRef(0);
 
   const onCreate = (date, content, emotion) => {
