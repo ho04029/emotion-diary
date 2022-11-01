@@ -2,41 +2,11 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { diaryReducerContext } from "./../App";
+import { getStringDate } from "../util/date";
+import { emotionList } from "../util/emotionList";
 import Header from "./Header";
 import Button from "./Button";
 import EmotionItem from "./EmotionItem";
-
-const emotionList = [
-  {
-    emotion_id: 1,
-    emotion_description: "완전 좋음",
-    emotion_img: process.env.PUBLIC_URL + "/assets/emotion1.png",
-  },
-  {
-    emotion_id: 2,
-    emotion_description: "좋음",
-    emotion_img: process.env.PUBLIC_URL + "/assets/emotion2.png",
-  },
-  {
-    emotion_id: 3,
-    emotion_description: "그럭 저럭",
-    emotion_img: process.env.PUBLIC_URL + "/assets/emotion3.png",
-  },
-  {
-    emotion_id: 4,
-    emotion_description: "나쁨",
-    emotion_img: process.env.PUBLIC_URL + "/assets/emotion4.png",
-  },
-  {
-    emotion_id: 5,
-    emotion_description: "완전 나쁨",
-    emotion_img: process.env.PUBLIC_URL + "/assets/emotion5.png",
-  },
-];
-
-const getStringDate = (date) => {
-  return date.toISOString().slice(0, 10);
-};
 
 const DiaryEditor = ({ isEdit, originData }) => {
   const [date, setDate] = useState(getStringDate(new Date()));

@@ -265,3 +265,64 @@ header>div{
 .EmotionItem_on_5{
   background-color: var(--very-bad);
 }
+
+/* Diary */
+.DiaryPage section{
+  width: 100%;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.DiaryPage h4{
+  font-size: 22px;
+}
+
+.DiaryPage .diary_img_wrapper{
+  background-color: #ececec;
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.DiaryPage .diary_img_wrapper{
+  background-color: var(--very-good);
+}
+.DiaryPage .diary_img_wrapper{
+  background-color: var(--good);
+}
+.DiaryPage .diary_img_wrapper{
+  background-color: var(--soso);
+}
+.DiaryPage .diary_img_wrapper{
+  background-color: var(--bad);
+}
+.DiaryPage .diary_img_wrapper{
+  background-color: var(--very-bad);
+}
+
+.DiaryPage .emotion_description{
+  font-size: 20px;
+  color: white;
+}
+
+.DiaryPage .diary_content_wrapper{
+  width: 100%;
+  background-color: #ececec;
+  border-radius: 5px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.DiaryPage .diary_content_wrapper p{
+  padding: 20px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2.5;
+}

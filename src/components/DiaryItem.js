@@ -9,7 +9,7 @@ const DiaryItem = ({ id, content, emotion, date }) => {
   const strDate = new Date(parseInt(date)).toLocaleDateString();
 
   const goDetail = () => {
-    navigate(`/detail/${id}`);
+    navigate(`/diary/${id}`);
   };
 
   const goEdit = () => {
