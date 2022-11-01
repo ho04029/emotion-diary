@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useNavigate } from "react-router-dom";
 
 import { diaryReducerContext } from "./../App";
@@ -17,9 +23,9 @@ const DiaryEditor = ({ isEdit, originData }) => {
   const contentRef = useRef();
   const navigate = useNavigate();
 
-  const emotionHandler = (emotionId) => {
+  const emotionHandler = useCallback((emotionId) => {
     setEmotion(emotionId);
-  };
+  }, []);
 
   const submitHandler = () => {
     if (content.length < 1) {

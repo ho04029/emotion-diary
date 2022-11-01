@@ -14,7 +14,7 @@ const filterSelectOption = [
   { value: "bad", name: "기분 나쁜 날" },
 ];
 
-const MenuControl = ({ value, option, onChange }) => {
+const MenuControl = React.memo(({ value, option, onChange }) => {
   return (
     <select
       className="MenuControl"
@@ -30,7 +30,7 @@ const MenuControl = ({ value, option, onChange }) => {
       ))}
     </select>
   );
-};
+});
 
 const DiaryList = ({ diaryList }) => {
   const [sort, setSort] = useState("latest");
@@ -40,9 +40,9 @@ const DiaryList = ({ diaryList }) => {
   const getDiaryList = () => {
     const filterCallback = (item) => {
       if (filter === "good") {
-        return item.emotion >= 3;
+        return item.emotion <= 3;
       } else if (filter === "bad") {
-        return item.emotion < 3;
+        return item.emotion > 3;
       }
     };
     const compare = (a, b) => {
