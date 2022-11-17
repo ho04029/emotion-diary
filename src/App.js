@@ -46,7 +46,7 @@ function App() {
 
   useEffect(() => {
     const localData = localStorage.getItem("diary");
-    if (JSON.parse(localData).length > 0) {
+    if (localData && JSON.parse(localData).length > 0) {
       const diaryList = JSON.parse(localData).sort(
         (a, b) => parseInt(b.id) - parseInt(a.id)
       );
